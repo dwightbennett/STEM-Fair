@@ -6,14 +6,15 @@
              mc:Ignorable="d"
              x:Class="STEMFair.MainPage">
 
-    <StackLayout>
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="Center">
         <!-- Place new controls here -->
         <Label Text="Welcome to the STEM Fair!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Button Text="Start"
                 TextColor="White"
-                BackgroundColor="AliceBlue"
+                BackgroundColor="Blue"
                 Clicked="Button_Clicked"
                 CornerRadius="5"/>
     </StackLayout>
