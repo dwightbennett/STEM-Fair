@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             xmlns:converters="clr-namespace:STEMFair.Converters" mc:Ignorable="d"
              x:Class="STEMFair.CodePage"
              Visual="Material"
              BackgroundColor="Black">
@@ -16,8 +16,20 @@
                 <Setter Property="CornerRadius" Value="40"/>
                 <Setter Property="FontSize" Value="36"/>
                 <Setter Property="BorderWidth" Value="3"/>
-
             </Style>
+
+             <Style x:Key="CodeButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="BorderColor" Value="White"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="FontSize" Value="36"/>
+                <Setter Property="BorderWidth" Value="3"/>
+                <Setter Property="Visual" Value="Default"/>
+            </Style>
+
+            <converters:CodeToValueConverter x:Key="CodeConverter"/>
+            <converters:NotEmptyConverter x:Key="NotEmptyConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
@@ -42,7 +54,18 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Text="">
+            <Button Text="{Binding Code, Converter={StaticResource CodeConverter}, ConverterParameter='0'}"
+                    Style="{StaticResource CodeButton}"
+                    Grid.Column="0"/>
+            <Button Text="{Binding Code, Converter={StaticResource CodeConverter}, ConverterParameter='1'}"
+                    Style="{StaticResource CodeButton}"
+                    Grid.Column="1"/>
+            <Button Text="{Binding Code, Converter={StaticResource CodeConverter}, ConverterParameter='2'}"
+                    Style="{StaticResource CodeButton}"
+                    Grid.Column="2"/>
+            <Button Text="{Binding Code, Converter={StaticResource CodeConverter}, ConverterParameter='3'}"
+                    Style="{StaticResource CodeButton}"
+                    Grid.Column="3"/>
         </Grid>
         
         <Grid Grid.Row="2"
@@ -119,8 +142,33 @@
                     CommandParameter="0"
                     Grid.Row="3"
                     Grid.Column="1"/>
+            <Button Style="{StaticResource KeyButton}"
+                    Text="Delete"
+                    FontSize="12"
+                    Command="{Binding DeleteCommand}"
+                    CommandParameter="0"
+                    IsVisible="{Binding Code, Converter={StaticResource NotEmptyConverter}}"
+                    Grid.Row="3"
+                    Grid.Column="2"/>
         </Grid>
         
-        
+
+        <Grid Grid.Row="3">
+            <StackLayout VerticalOptions="Start"
+                         HorizontalOptions="Center">
+                <Button Text="Submit"
+                    Style="{StaticResource KeyButton}"
+                    CornerRadius="5"
+                        IsVisible="{Binding Code, Converter={StaticResource NotEmptyConverter}}"
+                    Command="{Binding SubmitCommand}"
+                        HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding FailedText}"
+                   TextColor="OrangeRed"
+                   FontSize="18"
+                   IsVisible="{Binding FailedText, Converter={StaticResource NotEmptyConverter}}"/>
+            </StackLayout>
+            
+                    
+        </Grid>
     </Grid>
 </ContentPage>

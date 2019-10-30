@@ -10,25 +10,34 @@ namespace STEMFair.ViewModels
 {
     public class CodePageViewModel : BaseViewModel
     {
-        ObservableCollection<string> code;
-        public ObservableCollection<string> Code
+        string code;
+        public string Code
         {
             get => code;
             set => SetProperty(ref code, value);
         }
 
+        string failedText;
+        public string FailedText
+        {
+            get => failedText;
+            set => SetProperty(ref failedText, value);
+        }
+
         public CodePageViewModel()
         {
-            Code = new ObservableCollection<string>();
+            Code = string.Empty;
         }
 
         public ICommand NumberCommand => new Command<string>(NumberSelected);
+        public ICommand DeleteCommand => new Command(NumberDeleted);
+        public ICommand SubmitCommand => new Command(Submit);
 
         void NumberSelected(string number)
         {
-            if (Code.Count < 4)
+            if (Code.Count() < 4)
             {
-                Code.Add(number);
+                Code += number;
             }
         }
 
@@ -36,14 +45,22 @@ namespace STEMFair.ViewModels
         {
             if (Code.Any())
             {
-                Code.Remove(Code.Last());
+                Code = Code.Remove(Code.Count()-1);
+            }
+
+            if(!string.IsNullOrEmpty(FailedText))
+            {
+                FailedText = string.Empty;
             }
         }
 
         void Submit()
         {
-
+            FailedText = "Code Failed";
         }
+
+
+
 
     }
 }

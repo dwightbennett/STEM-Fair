@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="STEMFair.MainPage"
              Visual="Material"
-             BackgroundColor="DarkGray">
+             BackgroundColor="Black">
 
     <StackLayout VerticalOptions="Center"
                  HorizontalOptions="Center"
