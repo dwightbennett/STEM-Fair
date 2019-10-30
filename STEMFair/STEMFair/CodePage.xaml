@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="STEMFair.CodePage"
-             Visual="Material">
+             Visual="Material"
+             BackgroundColor="Black">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="KeyButton" TargetType="Button">
@@ -22,10 +23,29 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>            
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Label VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Grid.Row="0"
+               Text="Enter Code"
+               TextColor="White"
+               FontSize="36"/>
         <Grid Grid.Row="1"
+              Margin="40,0,40,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="">
+        </Grid>
+        
+        <Grid Grid.Row="2"
               Margin="40">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -42,44 +62,61 @@
             <Button Style="{StaticResource KeyButton}"
                     Text="7"
                     Grid.Row="0"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="7"
                     Grid.Column="0"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="8"
                     Grid.Row="0"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="8"
                     Grid.Column="1"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="9"
                     Grid.Row="0"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="9"
                     Grid.Column="2"/>
-
             <Button Style="{StaticResource KeyButton}"
                     Text="4"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="4"
                     Grid.Row="1"
                     Grid.Column="0"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="5"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="5"
                     Grid.Row="1"
                     Grid.Column="1"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="6"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="6"
                     Grid.Row="1"
                     Grid.Column="2"/>
-
             <Button Style="{StaticResource KeyButton}"
                     Text="1"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="1"
                     Grid.Row="2"
                     Grid.Column="0"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="2"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="2"
                     Grid.Row="2"
                     Grid.Column="1"/>
             <Button Style="{StaticResource KeyButton}"
                     Text="3"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="3"
                     Grid.Row="2"
-                    Grid.Column="2"/>
-            
+                    Grid.Column="2"/>            
             <Button Style="{StaticResource KeyButton}"
                     Text="0"
+                    Command="{Binding NumberCommand}"
+                    CommandParameter="0"
                     Grid.Row="3"
                     Grid.Column="1"/>
         </Grid>

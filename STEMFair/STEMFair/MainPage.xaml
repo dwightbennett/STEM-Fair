@@ -4,17 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STEMFair.MainPage">
+             x:Class="STEMFair.MainPage"
+             Visual="Material"
+             BackgroundColor="DarkGray">
 
     <StackLayout VerticalOptions="Center"
-                 HorizontalOptions="Center">
+                 HorizontalOptions="Center"
+                 Spacing="40"
+                 Margin="0,0,0,100">
         <!-- Place new controls here -->
-        <Label Text="Welcome to the STEM Fair!" 
+        <Label Text="Secret Photo Vault" 
+               FontSize="36"
+               TextColor="White"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
         <Button Text="Start"
                 TextColor="White"
-                BackgroundColor="Blue"
+                BackgroundColor="LightGreen"
+                BorderColor="Green"
+                FontSize="24"
+                BorderWidth="3"
                 Clicked="Button_Clicked"
                 CornerRadius="5"/>
     </StackLayout>

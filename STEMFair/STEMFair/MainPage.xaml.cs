@@ -16,6 +16,7 @@ namespace STEMFair
         public MainPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
         async void Button_Clicked(object sender, EventArgs e)
