@@ -9,14 +9,7 @@
              BackgroundColor="Black">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="KeyButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="LightGreen"/>
-                <Setter Property="BorderColor" Value="Green"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="CornerRadius" Value="40"/>
-                <Setter Property="FontSize" Value="36"/>
-                <Setter Property="BorderWidth" Value="3"/>
-            </Style>
+           
 
              <Style x:Key="CodeButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent"/>
@@ -161,6 +154,7 @@
                     CornerRadius="5"
                         IsVisible="{Binding Code, Converter={StaticResource NotEmptyConverter}}"
                     Command="{Binding SubmitCommand}"
+                        Padding="60,0"
                         HorizontalOptions="FillAndExpand"/>
             <Label Text="{Binding FailedText}"
                    TextColor="OrangeRed"

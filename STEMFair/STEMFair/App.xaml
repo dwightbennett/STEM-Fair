@@ -6,6 +6,15 @@
              mc:Ignorable="d"
              x:Class="STEMFair.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="KeyButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="LightGreen"/>
+                <Setter Property="BorderColor" Value="Green"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="40"/>
+                <Setter Property="FontSize" Value="36"/>
+                <Setter Property="BorderWidth" Value="3"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

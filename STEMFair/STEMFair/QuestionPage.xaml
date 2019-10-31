@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:STEMFair.Converters"
+             mc:Ignorable="d"
+             x:Class="STEMFair.QuestionPage"
+             Visual="Material"
+             BackgroundColor="Black">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NotEmptyConverter x:Key="NotEmptyConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="What is my favorite food?"
+               Grid.Row="0"
+              
+               TextColor="White"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="24"/>
+        <Entry Grid.Row="1"
+                Margin="40,0"
+               Text="{Binding Answer}"
+               Placeholder="Answer"
+               BackgroundColor="White"
+               VerticalOptions="Center"/>
+        <Grid Grid.Row="3">
+            <StackLayout VerticalOptions="Start"
+                         HorizontalOptions="Center">
+                <Button Text="Submit"
+                    Style="{StaticResource KeyButton}"
+                    CornerRadius="5"
+                        IsVisible="{Binding Answer, Converter={StaticResource NotEmptyConverter}}"
+                    Command="{Binding SubmitCommand}"
+                        Padding="60,0"
+                        HorizontalOptions="FillAndExpand"/>
+                <Label Text="{Binding FailedText}"
+                   TextColor="OrangeRed"
+                   FontSize="18"
+                   IsVisible="{Binding FailedText, Converter={StaticResource NotEmptyConverter}}"/>
+            </StackLayout>
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

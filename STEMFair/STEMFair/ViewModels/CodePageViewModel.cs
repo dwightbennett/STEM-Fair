@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -31,7 +28,7 @@ namespace STEMFair.ViewModels
 
         public ICommand NumberCommand => new Command<string>(NumberSelected);
         public ICommand DeleteCommand => new Command(NumberDeleted);
-        public ICommand SubmitCommand => new Command(Submit);
+        public ICommand SubmitCommand => new Command(async ()=> await Submit());
 
         void NumberSelected(string number)
         {
@@ -54,9 +51,15 @@ namespace STEMFair.ViewModels
             }
         }
 
-        void Submit()
+        async Task Submit()
         {
-            FailedText = "Code Failed";
+            if(!SecretValidator.ValidateCode(Code))
+            {
+                FailedText = "Wrong Code";
+                return;
+            }
+
+            await App.Current.MainPage.Navigation.PushAsync(new PicturePage());
         }
 
 

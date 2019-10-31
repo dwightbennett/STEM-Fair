@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:STEMFair.Converters"
+             mc:Ignorable="d"
+             x:Class="STEMFair.SelectionPage"
+             Selection="{Binding Selection}"
+             BackgroundColor="Black">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ResponseLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="Green"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="ResponseCheckBox" TargetType="CheckBox">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Color" Value="Green"/>
+            </Style>
+
+            <Style x:Key="ResponseFrame" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BorderColor" Value="Green"/>
+            </Style>
+
+            <Style x:Key="ResponseStack" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="5"/>
+                <Setter Property="Margin" Value="30,0"/>
+            </Style>
+
+            <converters:NotEmptyConverter x:Key="NotEmptyConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="What is the air-speed velocity of an unladen swallow?"
+               Grid.Row="0"
+               TextColor="White"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Style="{StaticResource ResponseFrame}"
+                   Grid.Row="0"/>
+            <StackLayout Orientation="Horizontal"
+                         Style="{StaticResource ResponseStack}"
+                         Grid.Row="0">
+                <CheckBox x:Name="Answer1Checkbox"
+                          CheckedChanged="Answer1Checkbox_CheckedChanged"
+                          Style="{StaticResource ResponseCheckBox}"/>
+                <Label Text="10 ft/s"
+                       Style="{StaticResource ResponseLabel}"/>
+            </StackLayout>
+
+            <Frame Style="{StaticResource ResponseFrame}"
+                   Grid.Row="1"/>
+            <StackLayout Orientation="Horizontal"
+                         Style="{StaticResource ResponseStack}"
+                         Grid.Row="1">
+                <CheckBox x:Name="Answer2Checkbox"
+                          CheckedChanged="Answer2Checkbox_CheckedChanged"
+                          Style="{StaticResource ResponseCheckBox}"/>
+                <Label Text="52 mph"
+                       Style="{StaticResource ResponseLabel}"/>
+            </StackLayout>
+
+            <Frame Style="{StaticResource ResponseFrame}"
+                   Grid.Row="2"/>
+            <StackLayout Orientation="Horizontal"
+                         Style="{StaticResource ResponseStack}"
+                         Grid.Row="2">
+                <CheckBox x:Name="Answer3Checkbox"
+                          CheckedChanged="Answer3Checkbox_CheckedChanged"
+                          Style="{StaticResource ResponseCheckBox}"/>
+                <Label Text="24 mph"
+                       Style="{StaticResource ResponseLabel}"/>
+            </StackLayout>
+
+            <Frame Style="{StaticResource ResponseFrame}"
+                   Grid.Row="3"/>
+            <StackLayout Orientation="Horizontal"
+                         Style="{StaticResource ResponseStack}"
+                         Grid.Row="3">
+                <CheckBox x:Name="Answer4Checkbox"
+                          CheckedChanged="Answer4Checkbox_CheckedChanged"
+                          Style="{StaticResource ResponseCheckBox}"/>
+                <Label Text="I dont know?!"
+                       Style="{StaticResource ResponseLabel}"/>
+            </StackLayout>
+
+
+        </Grid>
+
+        <Grid Grid.Row="2" VerticalOptions="Center">
+            <StackLayout VerticalOptions="Start"
+                         HorizontalOptions="Center">
+                <Button Text="Submit"
+                    Style="{StaticResource KeyButton}"
+                    CornerRadius="5"
+                    Command="{Binding SubmitCommand}"
+                        Padding="60,0"
+                        HorizontalOptions="FillAndExpand"/>
+                <Label Text="{Binding FailedText}"
+                   TextColor="OrangeRed"
+                   FontSize="18"
+                   IsVisible="{Binding FailedText, Converter={StaticResource NotEmptyConverter}}"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
