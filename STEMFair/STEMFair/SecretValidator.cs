@@ -4,17 +4,17 @@
     {
         public static bool ValidateQuestion(string answer)
         {
-            return answer == "pizza";
+            return false;
         }
 
         public static bool ValidateCode(string answer)
         {
-            return answer == "4853";
+            return false;
         }
 
         public static bool ValidateSelection(int answer)
         {
-            return answer == 3;
+            return false;
         }
 
     }
