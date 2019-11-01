@@ -15,6 +15,7 @@ namespace STEMFair
         public PicturePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

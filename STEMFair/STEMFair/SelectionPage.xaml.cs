@@ -18,6 +18,7 @@ namespace STEMFair
         public SelectionPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new SelectionPageViewModel();
         }
 

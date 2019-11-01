@@ -16,6 +16,7 @@ namespace STEMFair
         public QuestionPage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new QuestionPageViewModel();
         }
     }
