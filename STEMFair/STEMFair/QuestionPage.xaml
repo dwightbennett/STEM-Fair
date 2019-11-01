@@ -29,6 +29,7 @@
         <Entry Grid.Row="1"
                 Margin="40,0"
                Text="{Binding Answer}"
+               TextColor="Black"
                Placeholder="Answer"
                BackgroundColor="White"
                VerticalOptions="Center"/>

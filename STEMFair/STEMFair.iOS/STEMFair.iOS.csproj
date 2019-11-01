@@ -133,4 +133,7 @@
       <Name>STEMFair</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dreads.png" />
+  </ItemGroup>
 </Project>
